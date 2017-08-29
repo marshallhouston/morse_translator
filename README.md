@@ -4,7 +4,7 @@ Shell repo for B1 exercise
 On GitHub
 `fork`
 
-In Terminal 
+In Terminal
 
 ```bash
 git clone <your forked repo>

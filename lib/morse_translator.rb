@@ -1,49 +1,48 @@
-
 class Translate
-attr_reader :words_to_translate
 
-  def initialize(words_to_translate)
-    @words_to_translate = words_to_translate
-  end
-
-  def letters_to_morse_symbols
-    letters_to_morse_symbols = Hash.new(0)
-    letters_to_morse_symbols = {
-    	"a" => ".-",
-    	"b" => "-...",
-    	"c" => "-.-.",
-    	"d" => "-..",
-    	"e" => ".",
-    	"f" => "..-.",
-    	"g" => "--.",
-    	"h" => "....",
-    	"i" => "..",
-    	"j" => ".---",
-    	"k" => "-.-",
-    	"l" => ".-..",
-    	"m" => "--",
-    	"n" => "-.",
-    	"o" => "---",
-    	"p" => ".--.",
-    	"q" => "--.-",
-    	"r" => ".-.",
-    	"s" => "...",
-    	"t" => "-",
-    	"u" => "..-",
-    	"v" => "...-",
-    	"w" => ".--",
-    	"x" => "-..-",
-    	"y" => "-.--",
-    	"z" => "--..",
-    	" " => " "
-      }
-
-  end
+  LETTER_TO_MORSE = {
+  	"a" => ".-",
+  	"b" => "-...",
+  	"c" => "-.-.",
+  	"d" => "-..",
+  	"e" => ".",
+  	"f" => "..-.",
+  	"g" => "--.",
+  	"h" => "....",
+  	"i" => "..",
+  	"j" => ".---",
+  	"k" => "-.-",
+  	"l" => ".-..",
+  	"m" => "--",
+  	"n" => "-.",
+  	"o" => "---",
+  	"p" => ".--.",
+  	"q" => "--.-",
+  	"r" => ".-.",
+  	"s" => "...",
+  	"t" => "-",
+  	"u" => "..-",
+  	"v" => "...-",
+  	"w" => ".--",
+  	"x" => "-..-",
+  	"y" => "-.--",
+  	"z" => "--..",
+  	" " => " ",
+    "1" => ".----",
+    "2" => "..---",
+    "3" => "...--",
+    "4" => "....-",
+    "5" => ".....",
+    "6" => "-....",
+    "7" => "--....",
+    "8" => "---..",
+    "9" => "----.",
+    "0" => "-----"
+    }
 
   def eng_to_morse(words)
-    array_of_individual_characters = words.scan /\w/
-    
-    letters_to_morse_symbols.fetch_values(array_of_individual_characters) #return the value for each element in the array
+    words.downcase.split('').map do |letter|
+      LETTER_TO_MORSE[letter]
+    end.join('')
   end
-
 end
